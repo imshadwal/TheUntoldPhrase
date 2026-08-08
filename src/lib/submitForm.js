@@ -13,7 +13,7 @@ const FORM_ENDPOINT =
   FORM_EMAIL
 
 const ACTIVATE_HINT =
-  'FormSubmit still needs the permanent form ID. Open the Activate email in theuntoldphrase@gmail.com — copy the long random code (or the ID in the activate link) into .env as VITE_FORMSUBMIT_ID, restart the app, then try again. One ID covers Enquiry, Submit, Feedback, and Anonymous.'
+  'Form could not be delivered yet. Please try again in a minute, or DM us on Instagram @theuntoldphrase.'
 
 function looksLikeActivation(data = {}) {
   const msg = String(data.message || data.error || '').toLowerCase()

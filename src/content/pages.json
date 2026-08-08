@@ -40,6 +40,7 @@
         "name": "Shadwal Sinha",
         "title": "Founder & Admin",
         "image": "/images/about/shadwal-sinha.jpeg",
+        "imagePosition": "center 22%",
         "bio": [
           "Shadwal Sinha runs The Untold Phrase — the community behind बातें कुछ अनकही सी. With roots in Varanasi and a background in IT, he built TUP into a home where budding writers can share poems, micro tales, and the lines that never made it into conversation.",
           "He keeps the page focused on appreciating writers and leaving readers with something that lingers."
@@ -53,6 +54,7 @@
         "name": "Adarsh Yadav",
         "title": "Founder, Natkhat Media",
         "image": "/images/about/adarsh-yadav.jpeg",
+        "imagePosition": "center 18%",
         "bio": [
           "Adarsh Yadav is the founder of Natkhat Media, a Varanasi-based marketing studio focused on social content, branding, and campaigns that get people talking.",
           "With a background in social media marketing, he builds creative teams and brand stories — the kind of energy that helps communities like The Untold Phrase grow beyond the page."

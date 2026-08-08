@@ -16,7 +16,7 @@ function PersonSection({ person, index }) {
   return (
     <section className={`section about-founder${index % 2 === 1 ? ' about-founder--alt' : ''}`}>
       <div className="container about-split about-founder__grid">
-        <div>
+        <div className="about-founder__copy">
           <PageIntro eyebrow="Behind TUP" title={person.name} />
           <Text className="about-founder__role" component="p">
             {person.title}
@@ -64,9 +64,17 @@ function PersonSection({ person, index }) {
             </Button>
           </Group>
         </div>
-        <Reveal>
+        <Reveal className="about-founder__media">
           <div className="about-founder__portrait">
-            <img src={person.image || site.logo} alt={person.name} />
+            <img
+              src={person.image || site.logo}
+              alt={person.name}
+              style={
+                person.imagePosition
+                  ? { objectPosition: person.imagePosition }
+                  : undefined
+              }
+            />
             <div className="about-founder__caption">
               <span>{person.name}</span>
               <span>{captionSub}</span>

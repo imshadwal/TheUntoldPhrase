@@ -16,6 +16,7 @@ import Feedback from './pages/Feedback'
 import Privacy from './pages/Privacy'
 import AnonymousStories from './pages/AnonymousStories'
 import AnonymousStoryDetail from './pages/AnonymousStoryDetail'
+import NotFound from './pages/NotFound'
 import AnonInvite from './components/molecules/AnonInvite'
 import ScrollTopButton from './components/molecules/ScrollTopButton'
 import ScrollProgress from './components/molecules/ScrollProgress'
@@ -70,6 +71,7 @@ export default function App() {
             <Route path="/anonymous-stories/:slug" element={<AnonymousStoryDetail />} />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

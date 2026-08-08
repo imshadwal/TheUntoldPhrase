@@ -1,0 +1,19 @@
+.not-found {
+  min-height: min(70vh, 36rem);
+  display: flex;
+  align-items: center;
+}
+
+.not-found__inner {
+  max-width: 32rem;
+  padding-block: 2rem 4rem;
+}
+
+.not-found__support {
+  margin: 0.85rem 0 0;
+  color: var(--muted);
+  font-family: var(--font-reading);
+  font-size: 1.08rem;
+  line-height: 1.65;
+  max-width: 36ch;
+}

@@ -1,0 +1,192 @@
+[
+  {
+    "id": "swastika-jha",
+    "slug": "swastika-jha",
+    "name": "Swastika Jha",
+    "city": "Patna",
+    "craft": "Poetry & prose",
+    "instagram": "@thatintrovertwriter",
+    "image": "/images/writers/swastika-jha.jpg",
+    "bio": "A writer from Patna whose soft corners hold sharp truths. Selected for The Untold Phrase for intimate, reflective pieces that stay with the reader."
+  },
+  {
+    "id": "divyesh-prajapati",
+    "slug": "divyesh-prajapati",
+    "name": "Divyesh Prajapati",
+    "city": "Ahmedabad",
+    "craft": "Microtales",
+    "instagram": "",
+    "image": "/images/writers/divyesh-prajapati.jpg",
+    "bio": "Ahmedabad-based writer known for microtales about love, almosts, and the quiet turns that change everything."
+  },
+  {
+    "id": "adity-sinha",
+    "slug": "adity-sinha",
+    "name": "Adity Sinha",
+    "city": "Bangalore",
+    "craft": "Poetry",
+    "instagram": "@_the_unfinished_poetry",
+    "image": "/images/writers/adity-sinha.jpg",
+    "bio": "An IT engineer from Bangalore who pens unfinished poetry — unfinished only in the sense that feeling never really ends."
+  },
+  {
+    "id": "sakshi-shukla",
+    "slug": "sakshi-shukla",
+    "name": "Sakshi Shukla",
+    "city": "Prayagraj",
+    "craft": "Stories & musings",
+    "instagram": "",
+    "image": "/images/writers/sakshi-shukla.jpg",
+    "bio": "From Prayagraj, Sakshi writes with warmth and clarity — stories that feel like conversations you were meant to overhear."
+  },
+  {
+    "id": "palak-jatwani",
+    "slug": "palak-jatwani",
+    "name": "Palak Jatwani",
+    "city": "India",
+    "craft": "Poetry",
+    "instagram": "@_apoeticjourney__",
+    "image": "/images/writers/palak-jatwani.jpg",
+    "bio": "Author of Her Graceful Melancholy (2021). Palak’s poems hold body, ache, and grace in the same breath."
+  },
+  {
+    "id": "harshita-purohit",
+    "slug": "harshita-purohit",
+    "name": "Harshita Purohit",
+    "city": "India",
+    "craft": "Words & verse",
+    "instagram": "@wordsbyharshita",
+    "image": "/images/writers/harshita-purohit.jpg",
+    "bio": "Harshita writes soft, honest lines — the kind you screenshot and send to someone at midnight."
+  },
+  {
+    "id": "srilekha-mitra",
+    "slug": "srilekha-mitra",
+    "name": "Srilekha Mitra",
+    "city": "Kolkata",
+    "craft": "Poetry",
+    "instagram": "@mitra_srilekha",
+    "image": "/images/writers/srilekha-mitra.jpg",
+    "bio": "A voice from Kolkata, studying at Calcutta University, weaving everyday life into verse."
+  },
+  {
+    "id": "neha-dhalaria",
+    "slug": "neha-dhalaria",
+    "name": "Neha Dhalaria",
+    "city": "India",
+    "craft": "Prose",
+    "instagram": "",
+    "image": "/images/writers/neha-dhalaria.jpg",
+    "bio": "A lawyer by profession and a writer by instinct — Neha’s pieces cut clean and land true."
+  },
+  {
+    "id": "tanya-vatsa",
+    "slug": "tanya-vatsa",
+    "name": "Tanya Vatsa",
+    "city": "India",
+    "craft": "Unheard stories",
+    "instagram": "@unheard_writer",
+    "image": "/images/writers/tanya-vatsa.jpg",
+    "bio": "Dental surgery by day, unheard stories by night — Tanya writes the things people keep behind polite smiles."
+  },
+  {
+    "id": "divya-pyarani",
+    "slug": "divya-pyarani",
+    "name": "Divya Pyarani",
+    "city": "Solapur",
+    "craft": "Stories",
+    "instagram": "",
+    "image": "/images/writers/divya-pyarani.jpg",
+    "bio": "From Solapur, Divya brings grounded storytelling — small towns, big feelings."
+  },
+  {
+    "id": "suhana-patwa",
+    "slug": "suhana-patwa",
+    "name": "Suhana Patwa",
+    "city": "Banasthali",
+    "craft": "Writing",
+    "instagram": "@suhana_writes",
+    "image": "/images/writers/suhana-patwa.jpg",
+    "bio": "Suhana writes from Banasthali with a gentle, persistent voice — journals turned into shared pages."
+  },
+  {
+    "id": "vatsal-vishwam",
+    "slug": "vatsal-vishwam",
+    "name": "Vatsal Vishwam",
+    "city": "Ranchi",
+    "craft": "Stories since childhood",
+    "instagram": "",
+    "image": "/images/writers/vatsal-vishwam.jpg",
+    "bio": "Writing since the age of nine from Ranchi — Vatsal’s work carries the long patience of someone who never stopped."
+  },
+  {
+    "id": "meenal-rajpoot",
+    "slug": "meenal-rajpoot",
+    "name": "Meenal Rajpoot",
+    "city": "Faridabad",
+    "craft": "Musings",
+    "instagram": "",
+    "image": "/images/writers/meenal-rajpoot.jpg",
+    "bio": "Faridabad-based writer whose musings turn ordinary evenings into something worth keeping."
+  },
+  {
+    "id": "vrunda-prajapati",
+    "slug": "vrunda-prajapati",
+    "name": "Vrunda Prajapati",
+    "city": "Ahmedabad",
+    "craft": "Thoughts & verse",
+    "instagram": "@_.my.thoughts._",
+    "image": "/images/writers/vrunda-prajapati.jpg",
+    "bio": "Ahmedabad’s quiet chronicler — Vrunda shares thoughts that feel handwritten, even on a screen."
+  },
+  {
+    "id": "navjot-singh",
+    "slug": "navjot-singh",
+    "name": "Navjot Singh",
+    "city": "Punjab",
+    "craft": "Rational hearts",
+    "instagram": "@rationalhearts_",
+    "image": "/images/writers/navjot-singh.jpg",
+    "bio": "From Punjab — writing where reason and feeling sit at the same table."
+  },
+  {
+    "id": "jahnavi-morge",
+    "slug": "jahnavi-morge",
+    "name": "Jahnavi Morge",
+    "city": "Neral / Mumbai",
+    "craft": "Stories",
+    "instagram": "@jahnavi_morge_",
+    "image": "/images/writers/jahnavi-morge.jpg",
+    "bio": "Between Neral and Mumbai, Jahnavi writes the in-between spaces — commute, memory, and becoming."
+  },
+  {
+    "id": "sanskriti-bhatt",
+    "slug": "sanskriti-bhatt",
+    "name": "Sanskriti Bhatt",
+    "city": "Rishikesh",
+    "craft": "Selected writer",
+    "instagram": "",
+    "image": "/images/writers/sanskriti-bhatt.jpg",
+    "bio": "Selected writer for The Untold Phrase — remembered for committed craft and a firm stand for the community."
+  },
+  {
+    "id": "riya-vijay-chandani",
+    "slug": "riya-vijay-chandani",
+    "name": "Riya Vijay Chandani",
+    "city": "India",
+    "craft": "Select writer",
+    "instagram": "",
+    "image": "/images/writers/riya-vijay-chandani.jpg",
+    "bio": "A select voice of The Untold Phrase — part of the TUP family of writers."
+  },
+  {
+    "id": "atir-rizvi",
+    "slug": "atir-rizvi",
+    "name": "Atir Rizvi",
+    "city": "India",
+    "craft": "Select writer",
+    "instagram": "",
+    "image": "/images/writers/atir-rizvi.jpg",
+    "bio": "A select writer for The Untold Phrase, contributing to the page’s growing library of original work."
+  }
+]

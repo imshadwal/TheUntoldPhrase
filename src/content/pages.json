@@ -1,0 +1,86 @@
+{
+  "about": {
+    "eyebrow": "OUR STORY",
+    "title": "About The Untold Phrase",
+    "body": [
+      "The Untold Phrase began as a corner of Instagram for writers who needed somewhere honest to place their words. Today it is a growing home for micro tales, poems, letters, and the lines that never made it into conversation.",
+      "We read every submission with care, celebrate select writers from our community, and keep the door open for new voices still finding their language.",
+      "At heart, TUP is simple: appreciate writers, share what was left unsaid, and leave readers with something that lingers."
+    ],
+    "bullets": [
+      "Original poems, micro tales, and stories",
+      "A circle of select writers",
+      "Open submissions for new voices"
+    ],
+    "image": "/images/hero/hero-editorial.jpg",
+    "imageAlt": "Fountain pen writing on lined paper",
+    "pullQuote": "बातें कुछ अनकही सी",
+    "publish": [
+      "Micro tales & tiny stories",
+      "Poems and verse",
+      "Open letters",
+      "Quotes and one-liners"
+    ],
+    "founder": {
+      "name": "Shadwal Sinha",
+      "title": "Founder & Admin",
+      "image": "/images/about/shadwal-sinha.jpeg",
+      "bio": [
+        "Shadwal Sinha runs The Untold Phrase — the community behind बातें कुछ अनकही सी. With roots in Varanasi and a background in IT, he built TUP into a home where budding writers can share poems, micro tales, and the lines that never made it into conversation.",
+        "He keeps the page focused on appreciating writers and leaving readers with something that lingers."
+      ],
+      "instagramHandle": "@imshadwal",
+      "instagram": "https://instagram.com/imshadwal",
+      "links": []
+    },
+    "stats": [
+      { "label": "On Instagram", "value": "117K+" },
+      { "label": "Select writers", "value": "19" },
+      { "label": "Home for", "value": "Unsaid words" }
+    ]
+  },
+  "anonymous": {
+    "eyebrow": "NO NAME NEEDED",
+    "title": "Anonymous Stories",
+    "support": "True stories you couldn’t say out loud — shared without a byline. We read every submission before it appears here.",
+    "emptyTitle": "Waiting for our first anonymous story",
+    "emptySupport": "Be the first to send something unsaid. No name required — only honesty.",
+    "guidelines": [
+      "Share only what you have the right to tell; change names and details if needed.",
+      "No hate, harassment, or identifying someone against their will.",
+      "Keep it concise — a letter, a confession, a workplace almost-said.",
+      "We may lightly edit for clarity before publishing. Your name stays off the page."
+    ],
+    "formNote": "Submissions are reviewed before publishing. You will not be credited by name."
+  },
+  "submit": {
+    "eyebrow": "GUEST WRITING",
+    "title": "Share your piece",
+    "support": "If a draft has been waiting in your notes, this is your invitation to send it.",
+    "accepted": ["Tiny Tales", "Quotes", "Excerpts", "Musings", "Poems", "Stories", "Sayings", "Open Letters"],
+    "guidelines": [
+      "Keep pieces concise — micro tales, poems, letters, and short prose work best.",
+      "Submit original work you have the right to share; credit co-authors if any.",
+      "We may lightly edit for clarity or length before publishing, with credit to you.",
+      "We aim to reply when we can; Instagram DMs are also welcome at @theuntoldphrase."
+    ],
+    "note": "You can also send work through Instagram DM to @theuntoldphrase."
+  },
+  "feedback": {
+    "eyebrow": "TELL US",
+    "title": "Feedback",
+    "support": "Honest notes help us grow — tell us what feels right, and what we can do better."
+  },
+  "privacy": {
+    "eyebrow": "POLICY",
+    "title": "Privacy Policy",
+    "body": [
+      "The Untold Phrase treats your details with care. When you use our submit, enquiry, or feedback forms, we use what you share only to reply and — with your consent — to publish credited work.",
+      "Anonymous story submissions do not require a name. We still receive the story by email for moderation before anything is published publicly.",
+      "Form submissions are delivered through FormSubmit to theuntoldphrase@gmail.com solely to reach our team. We do not sell personal information.",
+      "Our Instagram feed and insights use the Instagram API. Visiting Instagram or other third-party links follows their own policies.",
+      "On our hosted site we use Vercel Analytics and Speed Insights for anonymous page views and performance metrics — not advertising profiles.",
+      "Questions about your data or published pieces can be sent through the Enquiry page or Instagram @theuntoldphrase."
+    ]
+  }
+}

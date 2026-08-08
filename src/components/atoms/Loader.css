@@ -1,0 +1,41 @@
+.tup-loader {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+}
+
+.tup-loader__ring {
+  position: relative;
+  width: 52px;
+  height: 52px;
+}
+
+.tup-loader__ring span {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  border-top-color: var(--accent, #6e2f3c);
+  animation: tupSpin 0.9s linear infinite;
+}
+
+.tup-loader__ring span:nth-child(2) {
+  inset: 8px;
+  border-top-color: color-mix(in srgb, var(--accent, #6e2f3c) 45%, white);
+  animation-duration: 1.25s;
+  animation-direction: reverse;
+}
+
+.tup-loader__label {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted, #6e6680);
+}
+
+@keyframes tupSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}

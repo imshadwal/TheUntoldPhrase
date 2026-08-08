@@ -1,0 +1,38 @@
+[
+  {
+    "id": "jiocinema",
+    "name": "Jio Cinema",
+    "logo": "/images/brands/jiocinema.jpeg",
+    "href": "https://www.jiocinema.com"
+  },
+  {
+    "id": "hotstar",
+    "name": "Disney+ Hotstar",
+    "logo": "/images/brands/disney.jpeg",
+    "href": "https://www.hotstar.com"
+  },
+  {
+    "id": "primevideo",
+    "name": "Prime Video",
+    "logo": "/images/brands/prime.jpeg",
+    "href": "https://www.primevideo.com"
+  },
+  {
+    "id": "oyo",
+    "name": "OYO",
+    "logo": "/images/brands/oyo.webp",
+    "href": "https://www.oyorooms.com"
+  },
+  {
+    "id": "pvr",
+    "name": "PVR Pictures",
+    "logo": "/images/brands/pvr.jpg",
+    "href": "https://www.pvrcinemas.com"
+  },
+  {
+    "id": "amazon-mini",
+    "name": "Amazon miniTV",
+    "logo": "/images/brands/amazonminitv.png",
+    "href": "https://www.amazon.in/minitv"
+  }
+]

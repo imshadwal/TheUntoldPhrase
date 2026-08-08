@@ -1,0 +1,82 @@
+.submit-page .section-support {
+  max-width: 40rem;
+}
+
+.submit-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 1.5rem;
+  align-items: stretch;
+  margin-top: 2rem;
+}
+
+.submit-aside,
+.submit-form {
+  height: 100%;
+}
+
+.submit-aside {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit-aside .eyebrow {
+  margin-top: 0;
+}
+
+.submit-aside .eyebrow + .submit-tags,
+.submit-aside .eyebrow + .submit-guidelines {
+  margin-top: 0.65rem;
+}
+
+.submit-aside .eyebrow:not(:first-child) {
+  margin-top: 1.75rem;
+}
+
+.submit-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.submit-tags li {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: color-mix(in srgb, var(--paper) 70%, white);
+}
+
+.submit-guidelines {
+  margin-top: 0.65rem;
+}
+
+.submit-guidelines li {
+  margin-bottom: 0.15rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.submit-note {
+  margin-top: auto !important;
+  padding-top: 1.5rem;
+}
+
+@media (max-width: 860px) {
+  .submit-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .submit-note {
+    margin-top: 1.25rem !important;
+    padding-top: 0;
+  }
+}

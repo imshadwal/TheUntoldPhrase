@@ -1,0 +1,7 @@
+.writings-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.25rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}

@@ -1,0 +1,359 @@
+/* Hanging note — drops from top-right, no modal backdrop */
+
+.anon-drop {
+  position: fixed;
+  z-index: 70;
+  top: 0;
+  left: 50%;
+  width: min(32rem, calc(100vw - 1.75rem));
+  padding-top: 0;
+  pointer-events: none;
+  transform: translateX(-50%);
+  animation: anon-drop-in 0.75s cubic-bezier(0.22, 1.35, 0.36, 1) both;
+}
+
+.anon-drop.is-leaving {
+  animation: anon-drop-out 0.4s ease forwards;
+}
+
+.anon-drop__string {
+  display: flex;
+  justify-content: center;
+  gap: 7rem;
+  height: calc(var(--header-h) + 0.35rem);
+  pointer-events: none;
+}
+
+.anon-drop__string span {
+  display: block;
+  width: 1.5px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    color-mix(in srgb, var(--accent) 45%, #8a7a70) 35%,
+    color-mix(in srgb, var(--accent) 55%, #8a7a70)
+  );
+  transform-origin: top center;
+  animation: anon-string-sway 3.6s ease-in-out infinite;
+}
+
+.anon-drop__string span:last-child {
+  animation-delay: -1.2s;
+}
+
+.anon-drop__card {
+  position: relative;
+  pointer-events: auto;
+  display: grid;
+  grid-template-columns: 7.25rem 1fr;
+  gap: 1.15rem;
+  align-items: start;
+  padding: 1.55rem 1.45rem 1.55rem 1.35rem;
+  margin-top: -0.15rem;
+  border-radius: 0.4rem 0.4rem 1.35rem 1.35rem;
+  background:
+    linear-gradient(165deg, #fffdf9 0%, #f4efe8 100%);
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, #d8d0c6);
+  box-shadow:
+    0 22px 48px rgba(26, 24, 22, 0.18),
+    0 1px 0 rgba(255, 255, 255, 0.7) inset;
+  transform-origin: 50% 0%;
+}
+
+.anon-drop__tape {
+  position: absolute;
+  top: -0.5rem;
+  left: 50%;
+  width: 4.2rem;
+  height: 1.2rem;
+  transform: translateX(-50%) rotate(-2deg);
+  background: color-mix(in srgb, var(--accent) 28%, #e8d9c8);
+  opacity: 0.9;
+  border-radius: 0.12rem;
+  box-shadow: 0 1px 2px rgba(26, 24, 22, 0.12);
+}
+
+.anon-drop__tape::before,
+.anon-drop__tape::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -18deg,
+    transparent,
+    transparent 3px,
+    rgba(255, 255, 255, 0.18) 3px,
+    rgba(255, 255, 255, 0.18) 4px
+  );
+}
+
+.anon-drop__close {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 2.15rem;
+  height: 2.15rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0.55rem;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.anon-drop__close:hover,
+.anon-drop__close:focus-visible {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  outline: none;
+}
+
+.anon-drop__face {
+  margin: 0.45rem 0 0;
+  width: 7.25rem;
+  height: 7.25rem;
+  border-radius: 1.15rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, var(--line));
+  box-shadow: 0 10px 22px rgba(110, 47, 60, 0.14);
+  transform: rotate(-3deg);
+}
+
+.anon-drop__face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 16%;
+}
+
+.anon-drop__copy {
+  min-width: 0;
+  padding-right: 1.35rem;
+  padding-top: 0.35rem;
+}
+
+.anon-drop__whisper {
+  margin: 0;
+  font-family: var(--font-reading);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.anon-drop__title {
+  margin: 0.3rem 0 0.55rem;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.4rem, 3vw, 1.75rem);
+  line-height: 1.22;
+}
+
+.anon-drop__support {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-reading);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+.anon-drop__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 1rem;
+  margin-top: 1.15rem;
+}
+
+.anon-drop__later {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.anon-drop__later:hover,
+.anon-drop__later:focus-visible {
+  color: var(--accent);
+  outline: none;
+}
+
+/* Mid-right float after dismiss */
+.anon-float {
+  position: fixed;
+  z-index: 40;
+  top: 50%;
+  right: max(0.85rem, env(safe-area-inset-right));
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  width: 3.55rem;
+  padding: 0.55rem 0.4rem 0.75rem;
+  border-radius: 1.2rem;
+  text-decoration: none;
+  color: var(--ink);
+  background:
+    linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--panel) 90%, var(--accent)),
+      var(--panel)
+    );
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--line));
+  box-shadow:
+    0 14px 36px rgba(26, 24, 22, 0.16),
+    0 1px 0 color-mix(in srgb, white 55%, transparent) inset;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+  animation: anon-float-in 0.45s ease both;
+}
+
+.anon-float:hover,
+.anon-float:focus-visible {
+  transform: translateY(-50%) translateX(-4px);
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+  box-shadow:
+    0 18px 42px rgba(110, 47, 60, 0.18),
+    0 1px 0 color-mix(in srgb, white 55%, transparent) inset;
+  outline: none;
+}
+
+.anon-float__face {
+  display: block;
+  width: 2.65rem;
+  height: 2.65rem;
+  border-radius: 0.85rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--line));
+  box-shadow: 0 4px 12px rgba(110, 47, 60, 0.14);
+}
+
+.anon-float__face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+.anon-float__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+.anon-float__title {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+@keyframes anon-drop-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-110%);
+  }
+  68% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(4%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes anon-drop-out {
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-18%) scale(0.96);
+  }
+}
+
+@keyframes anon-string-sway {
+  0%,
+  100% {
+    transform: scaleY(1) rotate(0.4deg);
+  }
+  50% {
+    transform: scaleY(1.02) rotate(-0.5deg);
+  }
+}
+
+@keyframes anon-float-in {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+@media (max-width: 560px) {
+  .anon-drop {
+    width: min(32rem, calc(100vw - 1.25rem));
+  }
+
+  .anon-drop__string {
+    gap: 42%;
+    height: calc(var(--header-h) - 0.25rem);
+  }
+
+  .anon-drop__card {
+    grid-template-columns: 5.5rem 1fr;
+    gap: 0.85rem;
+    padding: 1.25rem 1.05rem 1.25rem 1rem;
+  }
+
+  .anon-drop__face {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+
+  .anon-drop__title {
+    font-size: clamp(1.25rem, 5vw, 1.45rem);
+  }
+
+  .anon-float {
+    right: max(0.55rem, env(safe-area-inset-right));
+    width: 3.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anon-drop,
+  .anon-drop.is-leaving,
+  .anon-drop__string span,
+  .anon-float {
+    animation: none;
+  }
+
+  .anon-float:hover,
+  .anon-float:focus-visible {
+    transform: translateY(-50%);
+  }
+}

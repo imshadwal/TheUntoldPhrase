@@ -1,0 +1,109 @@
+.writing-detail {
+  padding: 3.5rem 0 4.5rem;
+}
+
+.writing-detail__inner {
+  max-width: 720px;
+}
+
+.writing-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--accent);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.writing-detail__back:hover {
+  color: var(--accent-soft);
+  transform: translateX(-2px);
+}
+
+.writing-detail__meta {
+  margin: 0 0 2rem;
+  color: var(--muted);
+}
+
+.writing-detail__meta a {
+  color: var(--accent);
+}
+
+.writing-detail__body {
+  font-family: var(--font-reading);
+  font-size: 1.12rem;
+  line-height: 1.85;
+  max-width: 65ch;
+  color: color-mix(in srgb, var(--ink) 92%, var(--muted));
+}
+
+.writing-detail__body p {
+  margin: 0 0 1rem;
+}
+
+.writing-detail__body.is-poem p {
+  margin: 0 0 0.35rem;
+  line-height: 1.75;
+}
+
+.writing-detail__body.is-poem br {
+  display: block;
+  content: '';
+  margin: 0.85rem 0;
+}
+
+.writing-detail__share {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.writing-detail__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 1.25rem 1.35rem;
+  border-radius: 1rem;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent) 8%, var(--panel)), var(--panel));
+}
+
+.writing-detail__cta p {
+  margin: 0;
+  font-family: var(--font-reading);
+  color: var(--muted);
+}
+
+.writing-detail__nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.92rem;
+}
+
+.writing-detail__nav a {
+  color: var(--accent);
+}
+
+.writing-detail__nav a:hover {
+  text-decoration: underline;
+}
+
+.writing-detail__related {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  max-width: var(--max);
+}

@@ -133,7 +133,7 @@ export default function AnonInvite() {
 
       {seen && !open ? (
         <Link
-          to="/anonymous-stories"
+          to="/anonymous-stories#send"
           className="anon-float"
           aria-label="Anonymous Stories — share without a byline"
         >

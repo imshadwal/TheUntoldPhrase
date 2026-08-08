@@ -14,10 +14,30 @@ import site from '../content/site.json'
 import { absoluteUrl } from '../lib/siteUrl'
 import './Home.css'
 
+/** Prefer featured pieces, at most one per category for the desk. */
+function pickDeskWritings(items, count = 4) {
+  const ranked = [...items].sort((a, b) => {
+    if (Boolean(a.featured) !== Boolean(b.featured)) return a.featured ? -1 : 1
+    return new Date(b.date) - new Date(a.date)
+  })
+
+  const picked = []
+  const usedCategories = new Set()
+
+  for (const item of ranked) {
+    if (picked.length >= count) break
+    if (usedCategories.has(item.category)) continue
+    picked.push(item)
+    usedCategories.add(item.category)
+  }
+
+  return picked
+}
+
 export default function Home() {
-  const featured = writings.filter((w) => w.featured)
-  const lead = featured[0] || writings[0]
-  const companions = featured.filter((w) => w.id !== lead?.id).slice(0, 3)
+  const desk = pickDeskWritings(writings, 4)
+  const lead = desk[0]
+  const companions = desk.slice(1)
   const spotlight = writers.slice(0, 3)
   const writerCount = site.writerCount || writers.length
 
@@ -65,7 +85,7 @@ export default function Home() {
                 Featured writings
               </Title>
               <Text className="section-support" component="p">
-                A lead piece from the library, with a few companions nearby.
+                A lead piece from the library, with companions from different corners of the phrase.
               </Text>
             </Reveal>
 

@@ -43,7 +43,7 @@
     "authorName": "Adity Sinha",
     "category": "poems",
     "date": "2021-07-15",
-    "featured": true,
+    "featured": false,
     "excerpt": "After every falling, a quieter standing — still, I rise.",
     "body": "They said the night would keep me.\nIt almost did.\n\nBut morning has a stubborn habit\nof arriving anyway —\nand so do I.\n\nAfter every falling,\na quieter standing.\nStill,\nI rise."
   },
@@ -127,7 +127,7 @@
     "authorName": "Divya Pyarani",
     "category": "stories",
     "date": "2020-07-27",
-    "featured": false,
+    "featured": true,
     "excerpt": "She kept the window open so the rain could finish the sentence she couldn’t.",
     "body": "She kept the window open so the rain could finish the sentence she couldn’t.\n\nOn the table: half a letter, a cold cup, and the kind of silence that is not empty — only waiting.\n\nWhen the power flickered, she laughed once, quietly, as if the city had finally agreed to sit with her.\n\nBy morning the letter was still unfinished.\nBut something in her had moved an inch toward kindness.\nSometimes that is the whole story."
   },

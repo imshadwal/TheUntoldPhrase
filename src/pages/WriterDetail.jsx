@@ -60,7 +60,9 @@ export default function WriterDetail() {
           <div>
             <PageIntro eyebrow={writer.craft} title={writer.name} />
             <Text className="writer-detail__city" component="p">
-              {writer.city}
+              {[writer.city, writer.age != null ? String(writer.age) : null]
+                .filter(Boolean)
+                .join(' · ')}
             </Text>
             <Text className="writer-detail__bio" component="p">
               {writer.bio}

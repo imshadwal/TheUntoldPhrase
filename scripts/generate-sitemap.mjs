@@ -11,7 +11,7 @@ const anonymousStories = JSON.parse(
   readFileSync(join(root, 'src/content/anonymousStories.json'), 'utf8')
 )
 
-const base = (site.siteUrl || 'https://theuntoldphrase.com').replace(/\/$/, '')
+const base = (site.siteUrl || 'https://www.theuntoldphrase.in').replace(/\/$/, '')
 const today = new Date().toISOString().slice(0, 10)
 
 const staticPaths = [

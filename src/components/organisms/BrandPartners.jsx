@@ -11,7 +11,7 @@ export default function BrandPartners() {
           <p className="eyebrow">Collaborations</p>
           <h2 className="section-title">Brands we&apos;ve worked with</h2>
           <p className="section-support">
-            Partners from our Instagram story highlights.
+            Words that travelled with partners beyond the page.
           </p>
         </Reveal>
 

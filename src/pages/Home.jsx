@@ -10,14 +10,20 @@ import Seo from '../components/molecules/Seo'
 import { categoryLabel } from '../components/molecules/WritingList'
 import writings from '../content/writings.json'
 import writers from '../content/writers.json'
+import oneLiners from '../content/oneLiners.json'
 import site from '../content/site.json'
 import { absoluteUrl } from '../lib/siteUrl'
 import './Home.css'
 
 export default function Home() {
-  const featured = writings.filter((w) => w.featured).slice(0, 4)
+  const featured = writings.filter((w) => w.featured)
+  const lead = featured[0] || writings[0]
+  const companions = featured.filter((w) => w.id !== lead?.id).slice(0, 3)
   const spotlight = writers.slice(0, 3)
   const writerCount = site.writerCount || writers.length
+  const phraseOfWeek =
+    oneLiners.find((line) => line.featured) ||
+    oneLiners[Math.floor(Date.now() / 86400000) % Math.max(oneLiners.length, 1)]
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -52,40 +58,81 @@ export default function Home() {
 
       <Hero />
 
-      <section className="section from-desk">
-        <div className="container">
-          <Reveal>
-            <Text className="eyebrow" component="p">
-              From the desk
-            </Text>
-            <Title order={2} className="section-title">
-              Featured writings
-            </Title>
-            <Text className="section-support" component="p">
-              A few pieces from the TUP library — poems, letters, and lines that linger.
-            </Text>
-          </Reveal>
-          <div className="featured-grid">
-            {featured.map((item, i) => (
-              <Reveal key={item.id} className={`delay-${i % 3}`}>
-                <Link to={`/writings/${item.slug}`} className="featured-card">
+      {phraseOfWeek ? (
+        <section className="phrase-week">
+          <div className="container phrase-week__inner">
+            <Reveal>
+              <Text className="eyebrow" component="p">
+                Phrase of the week
+              </Text>
+              <p className="phrase-week__line">“{phraseOfWeek.line}”</p>
+              <Button
+                component={Link}
+                to="/wallpapers"
+                variant="default"
+                color="wine"
+                radius="xl"
+                size="compact-md"
+              >
+                More one-liners →
+              </Button>
+            </Reveal>
+          </div>
+        </section>
+      ) : null}
+
+      {lead ? (
+        <section className="section from-desk">
+          <div className="container">
+            <Reveal>
+              <Text className="eyebrow" component="p">
+                From the desk
+              </Text>
+              <Title order={2} className="section-title">
+                Featured writings
+              </Title>
+              <Text className="section-support" component="p">
+                A lead piece from the library, with a few companions nearby.
+              </Text>
+            </Reveal>
+
+            <div className="featured-desk">
+              <Reveal>
+                <Link to={`/writings/${lead.slug}`} className="featured-lead">
                   <Text className="eyebrow" component="p">
-                    {categoryLabel(item.category)}
+                    {categoryLabel(lead.category)} · Today’s read
                   </Text>
-                  <Title order={3}>{item.title}</Title>
-                  <Text component="p">{item.excerpt}</Text>
-                  <span>{item.authorName}</span>
+                  <Title order={3}>{lead.title}</Title>
+                  <Text component="p">{lead.excerpt}</Text>
+                  <span>{lead.authorName} →</span>
                 </Link>
               </Reveal>
-            ))}
+
+              {companions.length ? (
+                <div className="featured-companions">
+                  {companions.map((item, i) => (
+                    <Reveal key={item.id} className={`delay-${i % 3}`}>
+                      <Link to={`/writings/${item.slug}`} className="featured-side">
+                        <Text className="eyebrow" component="p">
+                          {categoryLabel(item.category)}
+                        </Text>
+                        <Title order={4}>{item.title}</Title>
+                        <span>{item.authorName}</span>
+                      </Link>
+                    </Reveal>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+
+            <div className="btn-row">
+              <Button component={Link} to="/writings" color="wine" radius="xl">
+                Browse all writings →
+              </Button>
+            </div>
           </div>
-          <div className="btn-row">
-            <Button component={Link} to="/writings" color="wine" radius="xl">
-              Browse all writings →
-            </Button>
-          </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       <section className="section writers-teaser">
         <div className="container">
@@ -130,9 +177,21 @@ export default function Home() {
             <Title order={2} className="section-title">
               Submit the piece still sitting in your notes.
             </Title>
+            <Text className="submit-band__hindi" component="p">
+              {site.tagline}
+            </Text>
             <div className="btn-row">
               <Button component={Link} to="/submit" color="wine" radius="xl">
                 Submit yours →
+              </Button>
+              <Button
+                component={Link}
+                to="/anonymous-stories#send"
+                variant="default"
+                color="wine"
+                radius="xl"
+              >
+                Send anonymously
               </Button>
             </div>
           </Reveal>

@@ -17,6 +17,40 @@
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
+.wallpaper-card__open {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.wallpaper-lightbox {
+  display: grid;
+  gap: 1rem;
+}
+
+.wallpaper-lightbox img {
+  width: 100%;
+  max-height: min(70vh, 520px);
+  object-fit: contain;
+  border-radius: 0.75rem;
+  background: #1a1816;
+}
+
+.wallpaper-lightbox p {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-reading);
+}
+
+.wallpaper-lightbox__tip {
+  font-size: 0.9rem;
+}
+
 .wallpaper-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 18px 40px rgba(26, 24, 22, 0.18);

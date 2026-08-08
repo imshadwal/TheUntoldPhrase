@@ -18,6 +18,7 @@ import AnonymousStories from './pages/AnonymousStories'
 import AnonymousStoryDetail from './pages/AnonymousStoryDetail'
 import AnonInvite from './components/molecules/AnonInvite'
 import ScrollTopButton from './components/molecules/ScrollTopButton'
+import ScrollProgress from './components/molecules/ScrollProgress'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -51,6 +52,7 @@ export default function App() {
       <div className="app-shell__main">
         <ScrollToTop />
         <Header />
+        <ScrollProgress />
         <main className="main">
           <RouteLoader />
           <Routes>

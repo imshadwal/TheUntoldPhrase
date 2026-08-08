@@ -165,6 +165,22 @@ export default function About() {
         </section>
       ) : null}
 
+      {team.length ? (
+        <section className="section about-team-intro">
+          <div className="container">
+            <PageIntro
+              as="h2"
+              eyebrow={copy.teamIntro?.eyebrow || 'People'}
+              title={copy.teamIntro?.title || 'Who keeps the phrase going'}
+              support={
+                copy.teamIntro?.support ||
+                'Founder and creative partner — the hands behind the community.'
+              }
+            />
+          </div>
+        </section>
+      ) : null}
+
       {team.map((person, index) => (
         <PersonSection key={person.name} person={person} index={index} />
       ))}

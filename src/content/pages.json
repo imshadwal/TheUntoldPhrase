@@ -63,7 +63,12 @@
       { "label": "On Instagram", "value": "117K+" },
       { "label": "Select writers", "value": "19" },
       { "label": "Our focus", "value": "Unsaid words" }
-    ]
+    ],
+    "teamIntro": {
+      "eyebrow": "People",
+      "title": "Who keeps the phrase going",
+      "support": "Founder and creative partner — the hands behind the community and the stories that travel with it."
+    }
   },
   "anonymous": {
     "eyebrow": "NO NAME NEEDED",

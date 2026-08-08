@@ -177,21 +177,21 @@ export default function WritingDetail() {
 
           <div className="writing-detail__nav">
             {prev ? <Link to={`/writings/${prev.slug}`}>← {prev.title}</Link> : <span />}
-            {next ? <Link to={`/writings/${next.slug}`}>{next.title} →</Link> : null}
+            {next ? <Link to={`/writings/${next.slug}`}>{next.title} →</Link> : <span />}
           </div>
-        </div>
 
-        {related.length ? (
-          <div className="container writing-detail__related">
-            <Text className="eyebrow" component="p">
-              Related
-            </Text>
-            <Title order={2} className="section-title" mb="md">
-              Keep reading
-            </Title>
-            <WritingList items={related} />
-          </div>
-        ) : null}
+          {related.length ? (
+            <div className="writing-detail__related">
+              <Text className="eyebrow" component="p">
+                Related
+              </Text>
+              <Title order={2} className="section-title">
+                Keep reading
+              </Title>
+              <WritingList items={related} />
+            </div>
+          ) : null}
+        </div>
       </article>
     </>
   )

@@ -33,7 +33,9 @@ export default function Journey() {
               return (
                 <li
                   key={step.year + step.title}
-                  className={`journey__stop${isLast ? ' is-current' : ''}`}
+                  className={`journey__stop${isLast ? ' is-current' : ''}${
+                    index % 2 === 0 ? ' is-left' : ' is-right'
+                  }`}
                 >
                   <Reveal className={`delay-${index % 3}`}>
                     <div className="journey__marker">

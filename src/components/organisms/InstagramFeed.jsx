@@ -72,9 +72,11 @@ function InsightCard({ label, value, hint, tone }) {
 }
 
 export default function InstagramFeed() {
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState(fallbackFeed)
   const [insights, setInsights] = useState(null)
-  const [note, setNote] = useState('')
+  const [softNote, setSoftNote] = useState('')
+  const [source, setSource] = useState('fallback')
+  const [insightsOpen, setInsightsOpen] = useState(false)
 
   useEffect(() => {
     let alive = true
@@ -87,16 +89,19 @@ export default function InstagramFeed() {
 
         if (json.data?.length) {
           setPosts(json.data)
+          setSource(json.source || 'instagram')
         } else {
           setPosts(fallbackFeed)
+          setSource('fallback')
         }
 
         if (json.insights) setInsights(json.insights)
-        setNote(json.message || '')
+        setSoftNote(json.softNote || '')
       } catch {
         if (!alive) return
         setPosts(fallbackFeed)
-        setNote('Could not reach Instagram API. Showing curated frames for now.')
+        setSource('fallback')
+        setSoftNote('A few frames from the phrase — follow us for more.')
       }
     }
 
@@ -115,6 +120,8 @@ export default function InstagramFeed() {
           ? 'up'
           : null
 
+  const live = source === 'instagram'
+
   return (
     <section className="section ig-feed">
       <div className="container">
@@ -127,9 +134,9 @@ export default function InstagramFeed() {
                 {insights?.followers != null
                   ? `${formatCount(insights.followers)} followers`
                   : site.followerCount}
-                {insights ? ' · Last 30 days insights' : ' · Latest from the phrase'}
+                {live ? ' · Live from Instagram' : ' · Latest from the phrase'}
               </p>
-              {note ? <p className="ig-feed__note">{note}</p> : null}
+              {softNote ? <p className="ig-feed__note">{softNote}</p> : null}
             </div>
             <a
               className="btn btn--primary ig-feed__follow"
@@ -146,62 +153,75 @@ export default function InstagramFeed() {
         {insights ? (
           <Reveal>
             <div className="ig-insights">
-              <div className="ig-insights__top">
-                <div>
-                  <p className="eyebrow">Account pulse</p>
-                  <h3 className="ig-insights__title">Last 30 days</h3>
-                  <p className="ig-insights__support">
-                    Real-time Instagram insights for @{insights.username || 'theuntoldphrase'}.
-                    Data can lag up to 48 hours.
-                  </p>
-                </div>
-                <div className="ig-insights__chart">
-                  <p className="ig-stat__label">Daily reach</p>
-                  <ReachSparkline points={insights.dailyReach || []} />
-                </div>
-              </div>
+              <button
+                type="button"
+                className="ig-insights__toggle"
+                aria-expanded={insightsOpen}
+                onClick={() => setInsightsOpen((v) => !v)}
+              >
+                <span>
+                  <span className="eyebrow">Account pulse</span>
+                  <span className="ig-insights__toggle-title">Last 30 days</span>
+                </span>
+                <span className="ig-insights__chevron">{insightsOpen ? '−' : '+'}</span>
+              </button>
 
-              <div className="ig-stats">
-                <InsightCard
-                  label="Followers"
-                  value={formatCount(insights.followers)}
-                  hint="Current total"
-                />
-                <InsightCard
-                  label="Net change"
-                  value={formatSigned(insights.netFollowers)}
-                  hint={`${formatCount(insights.follows)} in · ${formatCount(insights.unfollows)} out`}
-                  tone={netTone}
-                />
-                <InsightCard
-                  label="Views"
-                  value={formatCount(insights.views)}
-                  hint="Content views"
-                />
-                <InsightCard
-                  label="Reach"
-                  value={formatCount(insights.reach)}
-                  hint="Unique accounts"
-                />
-                <InsightCard
-                  label="Profile visits"
-                  value={formatCount(insights.profileViews)}
-                />
-                <InsightCard
-                  label="Accounts engaged"
-                  value={formatCount(insights.accountsEngaged)}
-                />
-                <InsightCard
-                  label="Interactions"
-                  value={formatCount(insights.interactions)}
-                  hint="Likes, comments, shares…"
-                />
-                <InsightCard
-                  label="Posts on profile"
-                  value={formatCount(insights.mediaCount)}
-                  hint="All-time media"
-                />
-              </div>
+              {insightsOpen ? (
+                <div className="ig-insights__body">
+                  <div className="ig-insights__top">
+                    <p className="ig-insights__support">
+                      Instagram insights for @{insights.username || 'theuntoldphrase'}.
+                      Data can lag up to 48 hours.
+                    </p>
+                    <div className="ig-insights__chart">
+                      <p className="ig-stat__label">Daily reach</p>
+                      <ReachSparkline points={insights.dailyReach || []} />
+                    </div>
+                  </div>
+
+                  <div className="ig-stats">
+                    <InsightCard
+                      label="Followers"
+                      value={formatCount(insights.followers)}
+                      hint="Current total"
+                    />
+                    <InsightCard
+                      label="Net change"
+                      value={formatSigned(insights.netFollowers)}
+                      hint={`${formatCount(insights.follows)} in · ${formatCount(insights.unfollows)} out`}
+                      tone={netTone}
+                    />
+                    <InsightCard
+                      label="Views"
+                      value={formatCount(insights.views)}
+                      hint="Content views"
+                    />
+                    <InsightCard
+                      label="Reach"
+                      value={formatCount(insights.reach)}
+                      hint="Unique accounts"
+                    />
+                    <InsightCard
+                      label="Profile visits"
+                      value={formatCount(insights.profileViews)}
+                    />
+                    <InsightCard
+                      label="Accounts engaged"
+                      value={formatCount(insights.accountsEngaged)}
+                    />
+                    <InsightCard
+                      label="Interactions"
+                      value={formatCount(insights.interactions)}
+                      hint="Likes, comments, shares…"
+                    />
+                    <InsightCard
+                      label="Posts on profile"
+                      value={formatCount(insights.mediaCount)}
+                      hint="All-time media"
+                    />
+                  </div>
+                </div>
+              ) : null}
             </div>
           </Reveal>
         ) : null}

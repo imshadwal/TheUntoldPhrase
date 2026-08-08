@@ -16,7 +16,7 @@ export default function Writers() {
         path="/writers"
       />
       <section className="page-hero">
-        <div className="container writers-page">
+        <div className="container">
           <PageIntro
             eyebrow="Community"
             title="Select Writers"

@@ -2,7 +2,8 @@
   {
     "id": "ol1",
     "line": "Keep the line that softens you.",
-    "credit": "TUP"
+    "credit": "TUP",
+    "featured": true
   },
   {
     "id": "ol2",

@@ -57,7 +57,14 @@
 }
 
 .writing-row__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
   margin: 0 0 0.65rem;
+}
+
+.writing-row__meta-text {
+  margin: 0;
 }
 
 .writing-row__author {

@@ -12,6 +12,8 @@ import writings from '../content/writings.json'
 import writers from '../content/writers.json'
 import site from '../content/site.json'
 import { absoluteUrl } from '../lib/siteUrl'
+import { getWriter } from '../lib/writers'
+import WriterAvatar from '../components/molecules/WriterAvatar'
 import './Home.css'
 
 /** Prefer featured pieces, at most one per category for the desk. */
@@ -40,6 +42,7 @@ export default function Home() {
   const companions = desk.slice(1)
   const spotlight = writers.slice(0, 3)
   const writerCount = site.writerCount || writers.length
+  const leadWriter = lead ? getWriter(lead.authorId) : null
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -97,23 +100,37 @@ export default function Home() {
                   </Text>
                   <Title order={3}>{lead.title}</Title>
                   <Text component="p">{lead.excerpt}</Text>
-                  <span>{lead.authorName} →</span>
+                  <span className="featured-author">
+                    <WriterAvatar
+                      writer={leadWriter}
+                      name={lead.authorName}
+                      size="sm"
+                      className="writer-avatar--on-dark"
+                    />
+                    {lead.authorName} →
+                  </span>
                 </Link>
               </Reveal>
 
               {companions.length ? (
                 <div className="featured-companions">
-                  {companions.map((item, i) => (
-                    <Reveal key={item.id} className={`delay-${i % 3}`}>
-                      <Link to={`/writings/${item.slug}`} className="featured-side">
-                        <Text className="eyebrow" component="p">
-                          {categoryLabel(item.category)}
-                        </Text>
-                        <Title order={4}>{item.title}</Title>
-                        <span>{item.authorName}</span>
-                      </Link>
-                    </Reveal>
-                  ))}
+                  {companions.map((item, i) => {
+                    const writer = getWriter(item.authorId)
+                    return (
+                      <Reveal key={item.id} className={`delay-${i % 3}`}>
+                        <Link to={`/writings/${item.slug}`} className="featured-side">
+                          <Text className="eyebrow" component="p">
+                            {categoryLabel(item.category)}
+                          </Text>
+                          <Title order={4}>{item.title}</Title>
+                          <span className="featured-author">
+                            <WriterAvatar writer={writer} name={item.authorName} size="sm" />
+                            {item.authorName}
+                          </span>
+                        </Link>
+                      </Reveal>
+                    )
+                  })}
                 </div>
               ) : null}
             </div>

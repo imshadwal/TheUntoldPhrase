@@ -1,0 +1,41 @@
+.writer-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 12%, var(--paper));
+  border: 1.5px solid color-mix(in srgb, var(--accent) 22%, var(--line));
+}
+
+.writer-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.writer-avatar__fallback {
+  font-size: 0.65em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.writer-avatar--sm .writer-avatar__fallback {
+  font-size: 0.58rem;
+}
+
+.writer-avatar--lg {
+  border-width: 2px;
+}
+
+.writer-avatar--on-dark {
+  border-color: rgba(232, 196, 203, 0.45);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.writer-avatar--on-dark .writer-avatar__fallback {
+  color: #e8c4cb;
+}

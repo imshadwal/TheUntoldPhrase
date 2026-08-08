@@ -7,6 +7,8 @@ import WritingList from '../components/molecules/WritingList'
 import Seo from '../components/molecules/Seo'
 import site from '../content/site.json'
 import { absoluteUrl } from '../lib/siteUrl'
+import { getWriter } from '../lib/writers'
+import WriterAvatar from '../components/molecules/WriterAvatar'
 import './WritingDetail.css'
 
 function formatDate(date) {
@@ -28,6 +30,7 @@ export default function WritingDetail() {
   )
   const index = byDate.findIndex((w) => w.slug === slug)
   const writing = byDate[index]
+  const author = writing ? getWriter(writing.authorId) : null
 
   if (!writing) {
     return (
@@ -118,14 +121,24 @@ export default function WritingDetail() {
           <Title order={1} className="section-title">
             {writing.title}
           </Title>
-          <Text className="writing-detail__meta" component="p" c="dimmed">
-            {writing.authorId ? (
-              <Link to={`/writers/${writing.authorId}`}>{writing.authorName}</Link>
-            ) : (
-              writing.authorName
-            )}
-            {writing.date ? ` · ${formatDate(writing.date)}` : ''}
-          </Text>
+          <div className="writing-detail__byline">
+            <WriterAvatar writer={author} name={writing.authorName} size="lg" />
+            <div className="writing-detail__byline-text">
+              {writing.authorId ? (
+                <Link to={`/writers/${writing.authorId}`} className="writing-detail__author">
+                  {writing.authorName}
+                </Link>
+              ) : (
+                <span className="writing-detail__author">{writing.authorName}</span>
+              )}
+              {writing.date ? (
+                <Text className="writing-detail__meta" component="p" c="dimmed">
+                  {formatDate(writing.date)}
+                  {author?.city ? ` · ${author.city}` : ''}
+                </Text>
+              ) : null}
+            </div>
+          </div>
 
           <div className={`writing-detail__body${isPoem ? ' is-poem' : ''}`}>
             {writing.body.split('\n').map((line, i) =>

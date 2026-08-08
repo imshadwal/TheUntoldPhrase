@@ -96,10 +96,16 @@
   max-width: 36ch;
 }
 
-.featured-lead > span {
+.featured-author {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+.featured-lead .featured-author {
   color: #e8c4cb;
 }
 
@@ -131,10 +137,7 @@
   line-height: 1.25;
 }
 
-.featured-side > span {
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+.featured-side .featured-author {
   color: var(--accent);
 }
 

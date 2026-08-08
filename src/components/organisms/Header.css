@@ -5,11 +5,17 @@
   height: var(--header-h);
   background: color-mix(in srgb, var(--paper) 92%, transparent);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+  border-bottom: 0;
   overflow: visible;
 }
 
+.site-header::after {
+  display: none;
+}
+
 .site-header__inner {
+  position: relative;
+  z-index: 1;
   height: 100%;
   display: flex;
   align-items: center;
@@ -91,6 +97,7 @@
 
 .nav-dropdown {
   position: relative;
+  z-index: 2;
 }
 
 .nav-dropdown__trigger {
@@ -105,14 +112,15 @@
 
 .nav-dropdown__menu {
   position: absolute;
-  top: calc(100% + 0.35rem);
+  top: calc(100% + 0.55rem);
   left: 0;
+  z-index: 20;
   min-width: 180px;
   padding: 0.5rem;
-  background: var(--panel);
+  background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 0.85rem;
-  box-shadow: var(--shadow);
+  box-shadow: 0 12px 28px rgba(26, 24, 22, 0.12);
   display: none;
   flex-direction: column;
   gap: 0.15rem;

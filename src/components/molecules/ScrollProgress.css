@@ -1,11 +1,11 @@
 .scroll-progress {
   position: fixed;
-  top: var(--header-h);
+  top: calc(var(--header-h) - 3px);
   left: 0;
   right: 0;
-  z-index: 60;
+  z-index: 55;
   height: 3px;
-  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  background: color-mix(in srgb, var(--line) 80%, transparent);
   pointer-events: none;
 }
 
@@ -14,7 +14,7 @@
   height: 100%;
   width: 0;
   background: var(--accent);
-  box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 45%, transparent);
+  box-shadow: none;
   transition: width 0.08s linear;
 }
 

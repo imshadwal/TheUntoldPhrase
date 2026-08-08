@@ -313,6 +313,17 @@
   }
 }
 
+@keyframes anon-float-in-mobile {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 560px) {
   .anon-drop {
     width: min(32rem, calc(100vw - 1.25rem));
@@ -338,9 +349,24 @@
     font-size: clamp(1.25rem, 5vw, 1.45rem);
   }
 
+  /* Keep clear of mid-page content (journey, etc.) */
   .anon-float {
-    right: max(0.55rem, env(safe-area-inset-right));
-    width: 3.25rem;
+    top: auto;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    right: max(0.65rem, env(safe-area-inset-right));
+    transform: none;
+    width: 3.15rem;
+    padding: 0.45rem 0.35rem 0.6rem;
+    animation-name: anon-float-in-mobile;
+  }
+
+  .anon-float:hover,
+  .anon-float:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  .anon-float__title {
+    font-size: 0.78rem;
   }
 }
 
@@ -354,6 +380,6 @@
 
   .anon-float:hover,
   .anon-float:focus-visible {
-    transform: translateY(-50%);
+    transform: none;
   }
 }

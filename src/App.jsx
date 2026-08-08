@@ -17,6 +17,7 @@ import Privacy from './pages/Privacy'
 import AnonymousStories from './pages/AnonymousStories'
 import AnonymousStoryDetail from './pages/AnonymousStoryDetail'
 import AnonInvite from './components/molecules/AnonInvite'
+import ScrollTopButton from './components/molecules/ScrollTopButton'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -71,6 +72,7 @@ export default function App() {
         </main>
         <Footer />
         <AnonInvite />
+        <ScrollTopButton />
       </div>
     </div>
   )

@@ -188,9 +188,121 @@
   color: var(--muted);
 }
 
-@media (max-width: 1099px) {
+/* Mobile / tablet: vertical timeline — no sideways crush */
+@media (max-width: 899px) {
+  .journey {
+    padding-block: 3.5rem 2.75rem;
+    overflow: visible;
+  }
+
+  .journey__viewport {
+    margin-top: 2rem;
+    overflow: visible;
+    scroll-snap-type: none;
+    padding-block: 0;
+    padding-inline: 0;
+  }
+
+  .journey__fade {
+    display: none;
+  }
+
+  .journey__rail {
+    --rail-pad: 0;
+    width: 100%;
+    min-width: 0;
+    max-width: 36rem;
+    margin-inline: auto;
+    padding-inline: 0;
+    padding-left: 0.15rem;
+  }
+
+  .journey__spine {
+    left: 6px;
+    right: auto;
+    top: 0.35rem;
+    bottom: 0.35rem;
+    width: 1px;
+    height: auto;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      color-mix(in srgb, var(--accent) 55%, var(--line)) 8%,
+      color-mix(in srgb, var(--accent) 55%, var(--line)) 92%,
+      transparent
+    );
+  }
+
+  .journey__stops {
+    display: flex;
+    flex-direction: column;
+    grid-auto-flow: unset;
+    grid-auto-columns: unset;
+    width: 100%;
+    gap: 0;
+  }
+
+  .journey__stop {
+    padding-right: 0;
+    padding-bottom: 1.85rem;
+    scroll-snap-align: unset;
+  }
+
+  .journey__stop:last-child {
+    padding-bottom: 0;
+  }
+
+  .journey__stop .reveal {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .journey__marker {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 0;
+    min-width: 2.75rem;
+    padding-top: 0.2rem;
+  }
+
+  .journey__panel {
+    flex: 1;
+    min-width: 0;
+    padding: 0.15rem 0 0;
+  }
+
+  .journey__year {
+    font-size: clamp(1.65rem, 7vw, 2rem);
+  }
+
+  .journey__stop-title {
+    font-size: 1.15rem;
+  }
+
+  .journey__detail {
+    max-width: none;
+    font-size: 0.98rem;
+  }
+
+  .journey__stop:hover .journey__panel {
+    transform: none;
+  }
+
+  .journey__hint {
+    display: none;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1099px) {
   .journey__hint {
     display: block;
+  }
+
+  .journey__rail {
+    --stop-w: min(240px, 70vw);
+    padding-right: 4.5rem;
   }
 }
 

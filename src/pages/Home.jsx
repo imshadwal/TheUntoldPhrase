@@ -10,7 +10,6 @@ import Seo from '../components/molecules/Seo'
 import { categoryLabel } from '../components/molecules/WritingList'
 import writings from '../content/writings.json'
 import writers from '../content/writers.json'
-import oneLiners from '../content/oneLiners.json'
 import site from '../content/site.json'
 import { absoluteUrl } from '../lib/siteUrl'
 import './Home.css'
@@ -21,9 +20,6 @@ export default function Home() {
   const companions = featured.filter((w) => w.id !== lead?.id).slice(0, 3)
   const spotlight = writers.slice(0, 3)
   const writerCount = site.writerCount || writers.length
-  const phraseOfWeek =
-    oneLiners.find((line) => line.featured) ||
-    oneLiners[Math.floor(Date.now() / 86400000) % Math.max(oneLiners.length, 1)]
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -48,7 +44,7 @@ export default function Home() {
   }
 
   return (
-    <>
+    <div className="home-page">
       <Seo
         title={`${site.brand} · ${site.tagline}`}
         description={site.supportLine}
@@ -58,31 +54,8 @@ export default function Home() {
 
       <Hero />
 
-      {phraseOfWeek ? (
-        <section className="phrase-week">
-          <div className="container phrase-week__inner">
-            <Reveal>
-              <Text className="eyebrow" component="p">
-                Phrase of the week
-              </Text>
-              <p className="phrase-week__line">“{phraseOfWeek.line}”</p>
-              <Button
-                component={Link}
-                to="/wallpapers"
-                variant="default"
-                color="wine"
-                radius="xl"
-                size="compact-md"
-              >
-                More one-liners →
-              </Button>
-            </Reveal>
-          </div>
-        </section>
-      ) : null}
-
       {lead ? (
-        <section className="section from-desk">
+        <section className="section from-desk home-band home-band--paper">
           <div className="container">
             <Reveal>
               <Text className="eyebrow" component="p">
@@ -134,7 +107,7 @@ export default function Home() {
         </section>
       ) : null}
 
-      <section className="section writers-teaser">
+      <section className="section writers-teaser home-band home-band--mist">
         <div className="container">
           <Reveal>
             <Text className="eyebrow" component="p">
@@ -168,7 +141,7 @@ export default function Home() {
 
       <BrandPartners />
 
-      <section className="submit-band">
+      <section className="submit-band home-band">
         <div className="container submit-band__inner">
           <Reveal>
             <Text className="eyebrow" component="p">
@@ -197,6 +170,6 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
-    </>
+    </div>
   )
 }

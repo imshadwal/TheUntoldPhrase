@@ -1,22 +1,50 @@
-.phrase-week {
-  padding: 2.25rem 0;
-  border-bottom: 1px solid var(--line);
-  background: color-mix(in srgb, var(--accent) 5%, var(--paper));
+/* Soft alternating bands so Home sections read as separate chapters */
+.home-page > section.home-band,
+.home-page > section.journey,
+.home-page > section.ig-feed,
+.home-page > section.brands-strip {
+  border-block: 1px solid color-mix(in srgb, var(--line) 85%, transparent);
 }
 
-.phrase-week__inner {
-  max-width: 40rem;
-  text-align: center;
+.home-page .home-band--paper {
+  background: var(--paper);
 }
 
-.phrase-week__line {
-  margin: 0.55rem 0 1rem;
-  font-family: var(--font-display);
-  font-size: clamp(1.35rem, 3vw, 1.85rem);
-  font-weight: 500;
-  font-style: italic;
-  line-height: 1.35;
-  color: var(--ink);
+.home-page .home-band--mist {
+  background: color-mix(in srgb, var(--ink) 3.5%, var(--paper));
+}
+
+.home-page .from-desk {
+  background: var(--paper);
+}
+
+.home-page .writers-teaser {
+  background: color-mix(in srgb, var(--ink) 3.5%, var(--paper));
+}
+
+.home-page .journey {
+  background:
+    radial-gradient(ellipse 50% 60% at 0% 50%, rgba(110, 47, 60, 0.05), transparent 60%),
+    radial-gradient(ellipse 40% 50% at 100% 40%, rgba(26, 24, 22, 0.035), transparent 55%),
+    color-mix(in srgb, var(--accent) 4%, var(--paper));
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 85%, transparent);
+}
+
+.home-page .ig-feed {
+  background: var(--paper);
+}
+
+.home-page .brands-strip {
+  background: color-mix(in srgb, var(--ink) 3.5%, var(--paper));
+}
+
+.home-page .submit-band {
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--accent) 14%, var(--paper)),
+      color-mix(in srgb, var(--accent) 5%, var(--paper))
+    );
 }
 
 .featured-desk {
@@ -116,9 +144,6 @@
 
 .submit-band {
   padding: 4.5rem 0;
-  background:
-    linear-gradient(135deg, color-mix(in srgb, var(--accent) 12%, var(--paper)), var(--paper));
-  border-block: 1px solid var(--line);
 }
 
 .submit-band .section-title {

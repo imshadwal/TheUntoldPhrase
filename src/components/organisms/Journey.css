@@ -1,11 +1,6 @@
 .journey {
   position: relative;
   padding-block: 4.5rem 3.25rem;
-  border-bottom: 1px solid var(--line);
-  background:
-    radial-gradient(ellipse 50% 60% at 0% 50%, rgba(110, 47, 60, 0.06), transparent 60%),
-    radial-gradient(ellipse 40% 50% at 100% 40%, rgba(26, 24, 22, 0.04), transparent 55%),
-    var(--paper);
   overflow: hidden;
 }
 

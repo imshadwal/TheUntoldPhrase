@@ -194,6 +194,14 @@
   opacity: 0.9;
 }
 
+.about-founder--alt .about-founder__grid {
+  direction: rtl;
+}
+
+.about-founder--alt .about-founder__grid > * {
+  direction: ltr;
+}
+
 .about-publish-section {
   padding-top: 2rem;
 }

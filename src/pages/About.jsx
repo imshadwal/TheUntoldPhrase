@@ -8,9 +8,79 @@ import Reveal from '../components/atoms/Reveal'
 import { absoluteUrl } from '../lib/siteUrl'
 import './About.css'
 
+function PersonSection({ person, index }) {
+  const socialHref = person.instagram || person.linkedin
+  const socialLabel = person.instagramHandle || person.linkedinHandle || 'Profile'
+  const captionSub = person.instagramHandle || person.linkedinHandle || person.title
+
+  return (
+    <section className={`section about-founder${index % 2 === 1 ? ' about-founder--alt' : ''}`}>
+      <div className="container about-split about-founder__grid">
+        <div>
+          <PageIntro eyebrow="Behind TUP" title={person.name} />
+          <Text className="about-founder__role" component="p">
+            {person.title}
+          </Text>
+          {socialHref ? (
+            <Text className="about-founder__handle" component="p">
+              <a href={socialHref} target="_blank" rel="noreferrer">
+                {socialLabel}
+              </a>
+            </Text>
+          ) : null}
+          {person.bio.map((p) => (
+            <p key={p.slice(0, 28)} className="about-copy">
+              {p}
+            </p>
+          ))}
+          <Group gap="sm" mt="xl" className="btn-row">
+            {person.instagram ? (
+              <Button
+                component="a"
+                href={person.instagram}
+                target="_blank"
+                rel="noreferrer"
+                color="wine"
+                radius="xl"
+              >
+                {person.instagramHandle || 'Instagram'} →
+              </Button>
+            ) : null}
+            {person.linkedin ? (
+              <Button
+                component="a"
+                href={person.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                variant={person.instagram ? 'default' : undefined}
+                color="wine"
+                radius="xl"
+              >
+                LinkedIn →
+              </Button>
+            ) : null}
+            <Button component={Link} to="/enquiry" variant="default" color="wine" radius="xl">
+              Enquiry
+            </Button>
+          </Group>
+        </div>
+        <Reveal>
+          <div className="about-founder__portrait">
+            <img src={person.image || site.logo} alt={person.name} />
+            <div className="about-founder__caption">
+              <span>{person.name}</span>
+              <span>{captionSub}</span>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
 export default function About() {
   const copy = pages.about
-  const founder = copy.founder
+  const team = copy.team?.length ? copy.team : copy.founder ? [copy.founder] : []
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -23,13 +93,11 @@ export default function About() {
       name: site.brand,
       url: site.siteUrl,
       sameAs: [site.instagram],
-      founder: founder
-        ? {
-            '@type': 'Person',
-            name: founder.name,
-            jobTitle: founder.title,
-          }
-        : undefined,
+      founder: team.map((person) => ({
+        '@type': 'Person',
+        name: person.name,
+        jobTitle: person.title,
+      })),
     },
   }
 
@@ -97,56 +165,9 @@ export default function About() {
         </section>
       ) : null}
 
-      {founder ? (
-        <section className="section about-founder">
-          <div className="container about-split about-founder__grid">
-            <div>
-              <PageIntro eyebrow="Behind TUP" title={founder.name} />
-              <Text className="about-founder__role" component="p">
-                {founder.title}
-              </Text>
-              {founder.instagramHandle ? (
-                <Text className="about-founder__handle" component="p">
-                  <a href={founder.instagram} target="_blank" rel="noreferrer">
-                    {founder.instagramHandle}
-                  </a>
-                </Text>
-              ) : null}
-              {founder.bio.map((p) => (
-                <p key={p.slice(0, 28)} className="about-copy">
-                  {p}
-                </p>
-              ))}
-              <Group gap="sm" mt="xl" className="btn-row">
-                {founder.instagram ? (
-                  <Button
-                    component="a"
-                    href={founder.instagram}
-                    target="_blank"
-                    rel="noreferrer"
-                    color="wine"
-                    radius="xl"
-                  >
-                    {founder.instagramHandle || 'Instagram'} →
-                  </Button>
-                ) : null}
-                <Button component={Link} to="/enquiry" variant="default" color="wine" radius="xl">
-                  Enquiry
-                </Button>
-              </Group>
-            </div>
-            <Reveal>
-              <div className="about-founder__portrait">
-                <img src={founder.image || site.logo} alt={founder.name} />
-                <div className="about-founder__caption">
-                  <span>{founder.name}</span>
-                  <span>{founder.instagramHandle || founder.title}</span>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-      ) : null}
+      {team.map((person, index) => (
+        <PersonSection key={person.name} person={person} index={index} />
+      ))}
 
       {copy.publish?.length ? (
         <section className="section about-publish-section">
